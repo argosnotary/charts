@@ -3,7 +3,7 @@ entries:
   argos:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-15T14:20:08.751683163+02:00"
+    created: "2020-06-15T15:06:51.034886256+02:00"
     dependencies:
     - name: mongodb
       repository: https://charts.bitnami.com/bitnami
@@ -27,6 +27,17 @@ entries:
     - https://github.com/argosnotary
     type: application
     urls:
-    - https://argosnotary.github.io/charts/argos-0.0.1-RC7.tgz
+    - charts/argos-0.0.1-RC7.tgz
     version: 0.0.1-RC7
-generated: "2020-06-15T14:20:08.746812965+02:00"
+  argos-collector:
+  - apiVersion: v2
+    appVersion: 0.0.1-RC7
+    created: "2020-06-15T15:06:51.035258015+02:00"
+    description: A Helm chart for an Argos Notary collector
+    digest: 37ebc092c6650920f506e6c098ffc11b9aaa1f8cebc5971dd1a63eed7244c9ee
+    name: argos-collector
+    type: application
+    urls:
+    - charts/argos-collector-0.0.1-RC7.tgz
+    version: 0.0.1-RC7
+generated: "2020-06-15T15:06:51.030718236+02:00"
