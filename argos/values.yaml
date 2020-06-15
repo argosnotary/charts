@@ -1,0 +1,29 @@
+
+oauth-stub:
+  enabled: true
+
+service:
+  secret:
+    mongodb_uri:
+      password: password
+
+mongodb:
+  replicaSet:
+    enabled: true
+    key: password
+  mongodbRootPassword: password
+  persistence:
+    size: 1Gi
+
+frontend:
+  ingress:
+    enabled: true
+    hosts:
+      - host: argos.minikube.local
+        paths:
+          - /
+    tls:
+      - secretName: frontend-tls-default-secret
+        hosts:
+          - argos.minikube.local
+  

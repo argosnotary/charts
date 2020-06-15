@@ -1,0 +1,32 @@
+apiVersion: v1
+entries:
+  argos:
+  - apiVersion: v2
+    appVersion: 0.0.1-RC7
+    created: "2020-06-15T14:20:08.751683163+02:00"
+    dependencies:
+    - name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 7.14.0
+    - condition: oauthstub.enabled
+      name: oauthstub
+      repository: ""
+      version: 0.0.1-RC7
+    description: Argos Notary
+    digest: 38186c85fac0ffd0e9bf8052726e2a640275205c42bd67941f93ad07e525c895
+    home: https://argosnotary.github.io
+    keywords:
+    - argos
+    - notary
+    maintainers:
+    - name: Gerard Borst
+    - name: Michel Durieux
+    - name: Bart Kors
+    name: argos
+    sources:
+    - https://github.com/argosnotary
+    type: application
+    urls:
+    - https://argosnotary.github.io/charts/argos-0.0.1-RC7.tgz
+    version: 0.0.1-RC7
+generated: "2020-06-15T14:20:08.746812965+02:00"
