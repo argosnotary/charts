@@ -1,6 +1,6 @@
 apiVersion: v2
 name: argos
-version: 0.0.1-RC7
+version: 0.0.1
 description: Argos Notary
 home: https://argosnotary.github.io
 keywords:
