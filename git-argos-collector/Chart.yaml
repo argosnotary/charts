@@ -1,0 +1,10 @@
+apiVersion: v2
+name: git-argos-collector
+description: An Argos Notary artifact collector for git
+type: application
+version: 0.0.1
+appVersion: 0.0.1-RC7
+dependencies:
+  - name: argos-collector
+    version: 0.0.1
+    repository: https://argosnotary.github.io/charts

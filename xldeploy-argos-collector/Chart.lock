@@ -1,0 +1,6 @@
+dependencies:
+- name: argos-collector
+  repository: https://argosnotary.github.io/charts
+  version: 0.0.1
+digest: sha256:493ef51aeee4500e07803324cad6a6c0a24c9f3fc7ebfe8624dd3bfd4a5fa80b
+generated: "2020-06-16T13:47:45.112588331+02:00"

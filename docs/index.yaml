@@ -3,7 +3,7 @@ entries:
   argos:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-16T13:40:42.408244718+02:00"
+    created: "2020-06-16T13:59:08.155159841+02:00"
     dependencies:
     - name: mongodb
       repository: https://charts.bitnami.com/bitnami
@@ -32,7 +32,7 @@ entries:
   argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-16T13:40:42.408676938+02:00"
+    created: "2020-06-16T13:59:08.156263057+02:00"
     description: A Helm chart for an Argos Notary collector
     digest: db743aa5014f2b817b5c16442e453cee82286bd7679fffa143785536d7e3a79e
     name: argos-collector
@@ -40,4 +40,34 @@ entries:
     urls:
     - argos-collector-0.0.1.tgz
     version: 0.0.1
-generated: "2020-06-16T13:40:42.403963543+02:00"
+  git-argos-collector:
+  - apiVersion: v2
+    appVersion: 0.0.1-RC7
+    created: "2020-06-16T13:59:08.156926668+02:00"
+    dependencies:
+    - name: argos-collector
+      repository: https://argosnotary.github.io/charts
+      version: 0.0.1
+    description: An Argos Notary artifact collector for git
+    digest: 2402b54f6db5a36acb4554228c6ef0bc8be42bd7d1580f7f9659f684e807fc2f
+    name: git-argos-collector
+    type: application
+    urls:
+    - git-argos-collector-0.0.1.tgz
+    version: 0.0.1
+  xldeploy-argos-collector:
+  - apiVersion: v2
+    appVersion: 0.0.1-RC7
+    created: "2020-06-16T13:59:08.15743884+02:00"
+    dependencies:
+    - name: argos-collector
+      repository: https://argosnotary.github.io/charts
+      version: 0.0.1
+    description: A Helm chart for Kubernetes
+    digest: 7f87503329ccab3a415ca6f5a31024f427c6700d7cddab4369a2abbbcf3184ec
+    name: xldeploy-argos-collector
+    type: application
+    urls:
+    - xldeploy-argos-collector-0.0.1.tgz
+    version: 0.0.1
+generated: "2020-06-16T13:59:08.151842165+02:00"
