@@ -3,7 +3,7 @@ entries:
   argos:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-16T13:59:08.155159841+02:00"
+    created: "2020-06-16T17:55:14.373661498+02:00"
     dependencies:
     - name: mongodb
       repository: https://charts.bitnami.com/bitnami
@@ -32,7 +32,7 @@ entries:
   argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-16T13:59:08.156263057+02:00"
+    created: "2020-06-16T17:55:14.374073612+02:00"
     description: A Helm chart for an Argos Notary collector
     digest: db743aa5014f2b817b5c16442e453cee82286bd7679fffa143785536d7e3a79e
     name: argos-collector
@@ -43,13 +43,13 @@ entries:
   git-argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-16T13:59:08.156926668+02:00"
+    created: "2020-06-16T17:55:14.374648371+02:00"
     dependencies:
     - name: argos-collector
-      repository: https://argosnotary.github.io/charts
+      repository: '@argosnotary'
       version: 0.0.1
     description: An Argos Notary artifact collector for git
-    digest: 2402b54f6db5a36acb4554228c6ef0bc8be42bd7d1580f7f9659f684e807fc2f
+    digest: 5ad7cb5bc76033054112082a48a58de38d2e65078555c67aab351326ff0f8288
     name: git-argos-collector
     type: application
     urls:
@@ -58,16 +58,16 @@ entries:
   xldeploy-argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-16T13:59:08.15743884+02:00"
+    created: "2020-06-16T17:55:14.375195687+02:00"
     dependencies:
     - name: argos-collector
-      repository: https://argosnotary.github.io/charts
+      repository: '@argosnotary'
       version: 0.0.1
     description: A Helm chart for Kubernetes
-    digest: 7f87503329ccab3a415ca6f5a31024f427c6700d7cddab4369a2abbbcf3184ec
+    digest: 75420e0912dbd7243625dcc1ae14fbd44ef750dfe67fb700025b0aa6b049ebad
     name: xldeploy-argos-collector
     type: application
     urls:
     - xldeploy-argos-collector-0.0.1.tgz
     version: 0.0.1
-generated: "2020-06-16T13:59:08.151842165+02:00"
+generated: "2020-06-16T17:55:14.36903025+02:00"
