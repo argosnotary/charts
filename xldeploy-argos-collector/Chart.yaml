@@ -1,6 +1,6 @@
 apiVersion: v2
 name: xldeploy-argos-collector
-description: A Helm chart for Kubernetes
+description: An Argos Notary artifact collector for XLDeploy
 
 type: application
 version: 0.0.1

@@ -1,19 +1,31 @@
 apiVersion: v1
 entries:
-  argos:
+  argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-16T17:55:14.373661498+02:00"
+    created: "2020-06-17T17:25:27.050679576+02:00"
+    description: A Helm chart for an Argos Notary collector
+    digest: db743aa5014f2b817b5c16442e453cee82286bd7679fffa143785536d7e3a79e
+    name: argos-collector
+    type: application
+    urls:
+    - argos-collector-0.0.1.tgz
+    version: 0.0.1
+  argosnotary:
+  - apiVersion: v2
+    appVersion: 0.0.1-RC7
+    created: "2020-06-17T17:25:27.054592154+02:00"
     dependencies:
-    - name: mongodb
+    - condition: mongodb.enabled
+      name: mongodb
       repository: https://charts.bitnami.com/bitnami
       version: 7.14.0
-    - condition: oauthstub.enabled
+    - condition: global.oauthstub.enabled
       name: oauthstub
-      repository: ""
-      version: 0.0.1-RC7
+      repository: '@argosnotary'
+      version: 0.0.1
     description: Argos Notary
-    digest: 1dbcd546ca77488911de76e62b848eb853ce29c1a0cd442158de2d99c0c92545
+    digest: 39dd93d1a832d0d8545622760ea93b3d3388a60ce18cabd7d17c245a5f2ccac7
     home: https://argosnotary.github.io
     keywords:
     - argos
@@ -22,28 +34,17 @@ entries:
     - name: Gerard Borst
     - name: Michel Durieux
     - name: Bart Kors
-    name: argos
+    name: argosnotary
     sources:
     - https://github.com/argosnotary
     type: application
     urls:
-    - argos-0.0.1.tgz
-    version: 0.0.1
-  argos-collector:
-  - apiVersion: v2
-    appVersion: 0.0.1-RC7
-    created: "2020-06-16T17:55:14.374073612+02:00"
-    description: A Helm chart for an Argos Notary collector
-    digest: db743aa5014f2b817b5c16442e453cee82286bd7679fffa143785536d7e3a79e
-    name: argos-collector
-    type: application
-    urls:
-    - argos-collector-0.0.1.tgz
+    - argosnotary-0.0.1.tgz
     version: 0.0.1
   git-argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-16T17:55:14.374648371+02:00"
+    created: "2020-06-17T17:25:27.05573388+02:00"
     dependencies:
     - name: argos-collector
       repository: '@argosnotary'
@@ -55,19 +56,30 @@ entries:
     urls:
     - git-argos-collector-0.0.1.tgz
     version: 0.0.1
+  oauthstub:
+  - apiVersion: v2
+    appVersion: 0.0.1-RC7
+    created: "2020-06-17T17:25:27.0561856+02:00"
+    description: A Helm chart for an OAUTH stub
+    digest: b14e99dfe601538034b234dead557b165450f9c3b27949736873edb244f967df
+    name: oauthstub
+    type: application
+    urls:
+    - oauthstub-0.0.1.tgz
+    version: 0.0.1
   xldeploy-argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-16T17:55:14.375195687+02:00"
+    created: "2020-06-17T17:25:27.056715285+02:00"
     dependencies:
     - name: argos-collector
       repository: '@argosnotary'
       version: 0.0.1
-    description: A Helm chart for Kubernetes
-    digest: 75420e0912dbd7243625dcc1ae14fbd44ef750dfe67fb700025b0aa6b049ebad
+    description: An Argos Notary artifact collector for XLDeploy
+    digest: 6ec1cfc691a791c87bfc1b801d4d8b27829cd01755c2000755b77ec17aa0d3c2
     name: xldeploy-argos-collector
     type: application
     urls:
     - xldeploy-argos-collector-0.0.1.tgz
     version: 0.0.1
-generated: "2020-06-16T17:55:14.36903025+02:00"
+generated: "2020-06-17T17:25:27.050201867+02:00"

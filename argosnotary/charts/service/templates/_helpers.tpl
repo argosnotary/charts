@@ -52,6 +52,16 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
+Return the proper image name
+*/}}
+{{- define "service.image" -}}
+{{- $registryName := .Values.image.registry -}}
+{{- $repositoryName := .Values.image.repository -}}
+{{- $tag := .Values.image.tag | default .Chart.AppVersion | toString -}}
+{{- printf "%s/%s:%s" $registryName $repositoryName $tag -}}
+{{- end }}
+
+{{/*
 Create the name of the service account to use
 */}}
 {{- define "service.serviceAccountName" -}}

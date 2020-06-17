@@ -1,5 +1,5 @@
 apiVersion: v2
-name: argos
+name: argosnotary
 version: 0.0.1
 description: Argos Notary
 home: https://argosnotary.github.io
@@ -13,9 +13,11 @@ dependencies:
   - name: mongodb
     version: 7.14.0
     repository: https://charts.bitnami.com/bitnami
+    condition: mongodb.enabled
   - name: oauthstub
-    version: 0.0.1-RC7
-    condition: oauthstub.enabled
+    version: 0.0.1
+    repository: "@argosnotary"
+    condition: global.oauthstub.enabled
 maintainers:
   - name: Gerard Borst
   - name: Michel Durieux
