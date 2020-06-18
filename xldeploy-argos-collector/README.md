@@ -52,8 +52,9 @@ The following table lists the configurable parameters of the MongoDB chart and t
 | `argos-collector.key_value_map`             | Name of the key, value configuration map used in the `argos-collector` | `xldeploy-collector-key-value-map` |
 | `argos-collector.replicacount`              | Replica count of argos collector                                       | `1`                                |
 | `argos-collector.image.registry`            | Image registry                                                         | `docker.io`                        |
-| `argos-collector.ingress.hosts[0]`          | Hostname to the Argos Collector                                        | `argos-collector.local`            |
-| `argos-collector.ingress.hosts[0].path`     | Path within the url structure                                          | `/`                                |
+| `argos-collector.ingress.enabled`           | Enable ingress                                                         | `true`                             |
+| `argos-collector.ingress.hosts[0]`          | Hostname to the Argos Collector                                        | `xldeploy-argos-collector.local`   |
+| `argos-collector.ingress.hosts[0].paths[0]` | Path within the url structure                                          | `[/]`                              |
 | `argos-collector.ingress.tls[0].secretName` | TLS Secret Name                                                        | `argos-collector-tls-local-secret` |
 | `argos-collector.ingress.tls[0].hosts[0]`   | TLS hosts                                                              | `argos-collector.local`            |
 | `argos-collector.autoscaling.enabled`       | Enable hpa autoscaling                                                 | `false`                            |

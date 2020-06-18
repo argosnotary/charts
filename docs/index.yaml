@@ -3,9 +3,9 @@ entries:
   argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-18T18:27:48.422814069+02:00"
+    created: "2020-06-18T18:46:07.060667428+02:00"
     description: A Helm chart for an Argos Notary collector
-    digest: 1a6b1dfdc513fc574c7f7f4bbaff5bb09fc0053e45be8aa9c2d29dbe7c7ec1f3
+    digest: c1f6ea387ad85813a1a27cb6685e1f5ac78e06706494ad5dcb9391987029d0df
     name: argos-collector
     type: application
     urls:
@@ -14,7 +14,7 @@ entries:
   argosnotary:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-18T18:27:48.427048742+02:00"
+    created: "2020-06-18T18:46:07.064946828+02:00"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -25,7 +25,7 @@ entries:
       repository: '@argosnotary'
       version: 0.0.1
     description: Argos Notary
-    digest: 7f12d530c0aaa6cd247036e3b2deb20ed6f45024daf83ddd04d06aeac5793379
+    digest: f8c96d67d1f3ae9e0b51f1a7c3d52ae1a5caf6417c7708c698e9253d521e362e
     home: https://argosnotary.github.io
     keywords:
     - argos
@@ -44,13 +44,13 @@ entries:
   git-argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-18T18:27:48.427743461+02:00"
+    created: "2020-06-18T18:46:07.065552459+02:00"
     dependencies:
     - name: argos-collector
       repository: '@argosnotary'
       version: 0.0.1
     description: An Argos Notary artifact collector for git
-    digest: 3f9b5c45722e28bdf3d4cc7605ff68697cba41d9989c08ac72a8bf23760937a7
+    digest: ef19f2402aea7f849f3156c6c769df33a32de468140aefadb3a68846710023e7
     name: git-argos-collector
     type: application
     urls:
@@ -59,9 +59,9 @@ entries:
   oauthstub:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-18T18:27:48.428122787+02:00"
+    created: "2020-06-18T18:46:07.065930597+02:00"
     description: A Helm chart for an OAUTH stub
-    digest: 8f8e9d14c9e9640a323111828d6e2dff60d568958abc29dcdafb0d3c184facb2
+    digest: fecbe112e0197b8ac288bfe0f641c9d4eb0dffe0c04ae6321eea2f887a08929d
     name: oauthstub
     type: application
     urls:
@@ -70,16 +70,16 @@ entries:
   xldeploy-argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-06-18T18:27:48.428725778+02:00"
+    created: "2020-06-18T18:46:07.06659238+02:00"
     dependencies:
     - name: argos-collector
       repository: '@argosnotary'
       version: 0.0.1
     description: An Argos Notary artifact collector for XLDeploy
-    digest: 0e22aa95b3c585555e5621d44ff0ed63ec239316f502dd0ee890c65358da3a4c
+    digest: 093a3a0ae0c1a5aa1b41c987bd7b703025a0d9ed8dea0c565caeb8acad2ea153
     name: xldeploy-argos-collector
     type: application
     urls:
     - xldeploy-argos-collector-0.0.1.tgz
     version: 0.0.1
-generated: "2020-06-18T18:27:48.422237616+02:00"
+generated: "2020-06-18T18:46:07.060190089+02:00"

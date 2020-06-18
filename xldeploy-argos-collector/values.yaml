@@ -10,7 +10,7 @@ argos-collector:
   image:
     registry: docker.io
   ingress:
-    enabled: false
+    enabled: true
     hosts:
     - host: xldeploy-argos-collector.local
       paths: 
