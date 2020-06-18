@@ -4,10 +4,18 @@
 
 collector:
   type: XLDEPLOY
-  baseurl: http://192.168.178.21:4516
+  baseurl: ""
   
 argos-collector:
+  image:
+    registry: docker.io
   ingress:
-    enabled: true
-    
-configmap: argos-collector-configmap
+    enabled: false
+    hosts:
+    - host: xldeploy-argos-collector.local
+      paths: 
+      - /
+    tls: []
+  autoscaling:
+    enabled: false
+  key_value_map_name: "xldeploy-collector-key-value-map"

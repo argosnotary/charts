@@ -4,10 +4,18 @@
 
 collector:
   type: GIT
-  baseurl: http://localhost
+  baseurl: ""
   
 argos-collector:
+  image:
+    registry: docker.io
   ingress:
     enabled: true
-    
-configmap: argos-collector-configmap
+    hosts:
+    - host: git-argos-collector.local
+      paths: 
+      - /
+    tls: []
+  autoscaling:
+    enabled: false
+  key_value_map_name: "git-collector-key-value-map"

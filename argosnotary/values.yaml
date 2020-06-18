@@ -4,6 +4,8 @@ global:
     ip: ""
 
 frontend:
+#  autoscaling:
+#    enabled: false
 #   image:
 #     registry: docker.io
   ingress:
@@ -21,6 +23,8 @@ service:
   secret:
     mongodb_uri:
       password: password
+#  autoscaling:
+#    enabled: false
 #   image:
 #     registry: docker.io
 #   aad:

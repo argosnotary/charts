@@ -4,4 +4,4 @@ data:
   argos-collector.collectortypes.git.baseurl: {{ .Values.collector.baseurl | quote }}
 kind: ConfigMap
 metadata:
-  name: {{ .Release.Name }}-argos-collector-configmap
+  name: {{ .Release.Name }}-argos-collector-key-value-map

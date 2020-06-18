@@ -5,13 +5,14 @@
 replicaCount: 1
 
 image:
+  registry: docker.io
   repository: argosnotary/argos-collector-service
   
 collector:
   type: GIT
   baseurl: http://localhost
   
-configmap: argos-collector-default-configmap  
+key_value_map_name: "argos-collector-key-value-map"
 
 service:
   type: ClusterIP
@@ -23,25 +24,18 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: argos-collector.minikube.local
-      paths: 
-      - /
+    - host: argos-collector.local
+      path: /
   tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
   
 autoscaling:
   enabled: false
   minReplicas: 1
-  maxReplicas: 100
+  maxReplicas: 3
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+

@@ -48,12 +48,15 @@ The following table lists the configurable parameters of the MongoDB chart and t
 
 | Parameter                              | Description                                                      | Default                          |
 |----------------------------------------|------------------------------------------------------------------|----------------------------------|
-| `oauth-stub.enabled`                   | Enable the OAUTH stub                                            | `true`                           |
+| `oauth-stub.enabled`                   | Enable the OAUTH stub                                            | `false`                          |
+| `oauth-stub.ip`                        | The ip address used for oauthstub.local                          | `nil`                            |
+| `frontend.autoscaling.enabled`         | Enable hpa autoscaling                                           | `false`                          |
 | `frontend.image.registry`              | Argos frontend image registry                                    | `docker.io`                      |
 | `frontend.ingress.hosts[0]`            | Hostname to the Argos Notary frontend                            | `argosnotary.local`              |
 | `frontend.ingress.hosts[0].path`       | Path within the url structure                                    | `/`                              |
 | `frontend.ingress.tls[0].secretName`   | TLS Secret Name                                                  | `frontend-tls-local-secret`      |
 | `frontend.ingress.tls[0].hosts[0]`     | TLS hosts                                                        | `argosnotary.local`              |
+| `service.autoscaling.enabled`          | Enable hpa autoscaling                                           | `false`                          |
 | `service.image.registry`               | Argos service image registry                                     | `docker.io`                      |
 | `service.secret.mongodb_uri.password`  | The password used by the Argos Service on the MongoDB connection | `password`                       |
 | `aad.client_provider_oauth_url_prefix` | The Azure AD OAUTH endpoint                                      | `http://oauthstub.local`         |

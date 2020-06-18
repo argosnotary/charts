@@ -31,11 +31,11 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ include "argos-collector.image" . }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
           - configMapRef:
-              name: {{ .Release.Name }}-{{ .Values.configmap }}
+              name: {{ .Release.Name }}-{{ .Values.key_value_map_name }}
           ports:
             - name: http
               containerPort: 8080
