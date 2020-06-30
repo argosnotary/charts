@@ -1,19 +1,18 @@
 global:
   oauthstub:
-    enabled: false
-    ip: ""
+    enabled: true
+    ip: "172.17.0.3"
 
 frontend:
 #  autoscaling:
-#    enabled: false
-#   image:
-#     registry: docker.io
+#    enabled: false   
+  image:
+    repository: argosnotary/argos-frontend
   ingress:
     enabled: true
+    annotations: {}
     hosts:
       - host: argosnotary.local
-        paths:
-          - /
     tls:
       - secretName: frontend-tls-local-secret
         hosts:
@@ -23,30 +22,15 @@ service:
   secret:
     mongodb_uri:
       password: password
-#  autoscaling:
-#    enabled: false
-#   image:
-#     registry: docker.io
-#   aad:
-#     client_provider_auth_url_prefix: 'https://login.microsoftonline.com'
-#     client_provider_token_url_prefix: 'https://login.microsoftonline.com'
-#     client_provider_user_info_url: 'https://graph.microsoft.com/v1.0/me'
-#     client_secret: '<client secret>'
-#     client_id: '<client id>'
-#     authorizationUri: '<tenant id>/oauth2/v2.0/authorize'
-#     tokenUri: '<tenant id>/oauth2/v2.0/token'
-#     frontendRedirectBasePath: 'https://argos-accept.intern.rabobank.nl'
-#     jwt_token: '<jwt token>'
+      dbhost_and_port: "<db host>"
+  image:
+    repository: argosnotary/argos-service
 
 mongodb:
   enabled: true
   replicaSet:
     enabled: true
   mongodbRootPassword: password
-#   persistence:
-#     size: 8Gi
-#   image:
-#     registry: docker.io
 
 
   
