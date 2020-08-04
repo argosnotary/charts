@@ -10,7 +10,7 @@ image:
   
 collector:
   type: GIT
-  baseurl: http://localhost
+  baseurl: <placeholder>
   
 key_value_map_name: "argos-collector-key-value-map"
 
@@ -19,12 +19,12 @@ service:
   port: 8080
 
 ingress:
-  enabled: false
+  enabled: true
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: argos-collector.local
+    - host: <placeholder>
       path: /
   tls: []
 

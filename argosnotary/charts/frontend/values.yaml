@@ -47,12 +47,12 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: argosnotary.local
+    - host: <placeholder>
       paths: []
   tls:
-    - secretName: frontend-tls-secret
+    - secretName: <placeholder>
       hosts:
-        - argosnotary.local
+        - <placeholder>
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

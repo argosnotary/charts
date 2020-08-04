@@ -27,12 +27,6 @@ spec:
       serviceAccountName: {{ include "service.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      {{- if .Values.global.oauthstub.enabled }}
-      hostAliases:
-      - ip: {{ .Values.global.oauthstub.ip | quote }}
-        hostnames:
-        - "oauthstub.local"
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -47,33 +41,21 @@ spec:
             httpGet:
               path: /actuator/health
               port: http
+            initialDelaySeconds: 40
+            periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /actuator/health
               port: http
+            initialDelaySeconds: 40
+            periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-          - name: auth.frontendRedirectBasePath
-            valueFrom:
-              configMapKeyRef:
-                name: {{ include "service.fullname" . }}-configmap
-                key: auth.frontendRedirectBasePath
           - name: server.use-forward-headers
-            valueFrom:
-              configMapKeyRef:
-                name: {{ include "service.fullname" . }}-configmap
-                key: server.use-forward-headers
-          - name: azure-client-provider-userInfoUri
-            valueFrom:
-              configMapKeyRef:
-                name: {{ include "service.fullname" . }}-configmap
-                key: azure-client-provider-user-info-uri
-          - name: spring.security.oauth2.client.provider.azure.userInfoUri
-            valueFrom:
-              configMapKeyRef:
-                name: {{ include "service.fullname" . }}-configmap
-                key: azure-client-provider-user-info-uri
+            value: 'true'
+          - name: spring.config.location
+            value: 'file:/application.yml'
           - name: spring.data.mongodb.uri
             valueFrom:
               secretKeyRef:
@@ -84,26 +66,51 @@ spec:
               secretKeyRef:
                 name: {{ include "service.fullname" . }}-secret
                 key: jwt.token.secret
-          - name: spring.security.oauth2.client.registration.azure.clientId
-            valueFrom:
-              secretKeyRef:
-                name: {{ include "service.fullname" . }}-secret
-                key: azure-client-id
+            {{- if .Values.oauth2.client.provider.azure.enabled }}
           - name: spring.security.oauth2.client.registration.azure.clientSecret
             valueFrom:
               secretKeyRef:
                 name: {{ include "service.fullname" . }}-secret
-                key: azure-client-secret
-          - name: spring.security.oauth2.client.provider.azure.authorizationUri
+                key: oauth2.client.registration.azure.clientSecret
+          - name: spring.security.oauth2.client.registration.azure.clientId
             valueFrom:
               secretKeyRef:
                 name: {{ include "service.fullname" . }}-secret
-                key: azure.authorizationUri
-          - name: spring.security.oauth2.client.provider.azure.tokenUri
+                key: oauth2.client.registration.azure.clientId
+            {{- end }}
+            {{- if .Values.oauth2.client.provider.github.enabled }}
+          - name: spring.security.oauth2.client.registration.github.clientSecret
             valueFrom:
               secretKeyRef:
                 name: {{ include "service.fullname" . }}-secret
-                key: azure.tokenUri
+                key: oauth2.client.registration.github.clientSecret
+          - name: spring.security.oauth2.client.registration.github.clientId
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "service.fullname" . }}-secret
+                key: oauth2.client.registration.github.clientId
+            {{- end }}
+            {{- if .Values.oauth2.client.provider.google.enabled }}
+          - name: spring.security.oauth2.client.registration.google.clientSecret
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "service.fullname" . }}-secret
+                key: oauth2.client.registration.google.clientSecret
+          - name: spring.security.oauth2.client.registration.google.clientId
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "service.fullname" . }}-secret
+                key: oauth2.client.registration.google.clientId
+            {{- end }}
+          volumeMounts:
+          - name: application-yaml
+            mountPath: /application.yml
+            readOnly: true            
+            subPath: application.yml
+      volumes:
+      - name: application-yaml
+        configMap:
+          name: {{ include "service.fullname" . }}-configmap
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

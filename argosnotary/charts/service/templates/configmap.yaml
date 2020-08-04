@@ -1,8 +1,114 @@
 apiVersion: v1
 data:
-  server.use-forward-headers: 'true'
-  auth.frontendRedirectBasePath: {{ .Values.aad.frontendRedirectBasePath | quote }}
-  azure-client-provider-user-info-uri: {{ .Values.aad.client_provider_user_info_url }}
+  application.yml: |
+      spring:
+        security:
+          oauth2:
+            client:
+              registration:
+                {{- if .Values.oauth2.client.provider.azure.enabled }}
+                azure:
+                  client-name: azure
+                  clientId: <placeholder>
+                  clientSecret: <placeholder>
+                  redirectUri: "{baseUrl}/api/oauth2/callback/{registrationId}"
+                  client-authentication-method: basic
+                  authorization-grant-type: authorization_code
+                  scope:
+                    - https://graph.microsoft.com/User.Read
+                {{- end }}
+                {{- if .Values.oauth2.client.provider.github.enabled }}
+                github:
+                  clientId: <placeholder>
+                  clientSecret: <placeholder>
+                  redirectUri: "{baseUrl}/api/oauth2/callback/{registrationId}"
+                  scope:
+                    - user:email
+                    - read:user
+                {{- end }}
+                {{- if .Values.oauth2.client.provider.google.enabled }}
+                google:
+                  clientId: <placeholder>
+                  clientSecret: <placeholder>
+                  redirectUri: "{baseUrl}/api/oauth2/callback/{registrationId}"
+                  scope:
+                    - email
+                    - profile
+                {{- end }}
+              provider:
+                {{- with .Values.oauth2.client }}
+                {{- if .provider.azure.enabled }}
+                azure:
+                  authorizationUri: {{ .provider.azure.authorizationUri | quote }}
+                  tokenUri: {{ .provider.azure.tokenUri | quote }}
+                  userInfoUri: {{ .provider.azure.userInfoUri | quote }}
+                  userNameAttribute: displayName
+                  userIdAttribute: id
+                  userEmailAttribute: userPrincipalName
+                  iconUrl: /images/auth_icons/microsoft.svg
+                  displayName: Azure
+                {{- end }}
+                {{- end }}
+                {{- if .Values.oauth2.client.provider.github.enabled }}
+                github:
+                  authorizationUri: https://github.com/login/oauth/authorize
+                  tokenUri: https://github.com/login/oauth/access_token
+                  userInfoUri: https://api.github.com/user
+                  userNameAttribute: name
+                  userIdAttribute: id
+                  userEmailAttribute: email
+                  iconUrl: /images/auth_icons/github.svg
+                  displayName: Github
+                  emailAddressHandler:
+                    className: com.rabobank.argos.service.security.oauth2.GithubEmailProvider
+                    uri: https://api.github.com/user/emails
+                {{- end }}
+                {{- if .Values.oauth2.client.provider.google.enabled }}
+                google:
+                  authorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+                  tokenUri: https://oauth2.googleapis.com/token
+                  userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+                  userNameAttribute: name
+                  userIdAttribute: sub
+                  userEmailAttribute: email
+                  iconUrl: /images/auth_icons/google.svg
+                  displayName: Google
+                {{- end }}
+        application:
+          name: argos-service
+      management:
+        endpoints:
+          enabled-by-default: false
+          jmx:
+            exposure:
+              include: ''
+        endpoint:
+          info:
+            enabled: true
+          health:
+            enabled: true
+      
+      jwt:
+        token:
+          expiration: PT12H
+          refreshInterval: PT15M
+          sessionTimout: PT5M
+      
+          # replace with the result of com.rabobank.argos.service.security.TokenProvider.main
+          secret: <placeholder>
+      
+        # After successfully authenticating with the OAuth2 Provider,
+        # we'll be generating an auth token for the user and sending the token to the
+        # redirectUri mentioned by the client in the /oauth2/authorize request.
+        # We're not using cookies because they won't work well in mobile clients.
+      auth:
+        frontendRedirectBasePath: {{ .Values.auth.frontendRedirectBasePath | quote }}
+      
+      logging:
+        pattern:
+          console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%-5level) [${spring.application.name:-},traceId=%X{traceId:-},accountId=%X{accountId:-},accountName=%X{accountName}] %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+        level:
+          root: INFO
 kind: ConfigMap
 metadata:
   name: {{ include "service.fullname" . }}-configmap

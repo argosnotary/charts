@@ -62,7 +62,7 @@ The following table lists the configurable parameters of the MongoDB chart and t
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```bash
-$ helm install my-release \
+$ helm install git-collector \
   --set collector.baseurl=https://github.com/argosnotary \
     argosnotary/git-argos-collector
 ```

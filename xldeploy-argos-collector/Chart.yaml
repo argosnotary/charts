@@ -4,7 +4,7 @@ description: An Argos Notary artifact collector for XLDeploy
 
 type: application
 version: 0.0.1
-appVersion: 0.0.1-RC7
+appVersion: 0.0.1
 dependencies:
   - name: argos-collector
     version: 0.0.1
