@@ -1,13 +1,8 @@
 global:
   oauthstub:
     enabled: true
-    ip: "172.17.0.3"
 
 frontend:
-#  autoscaling:
-#    enabled: false   
-  image:
-    repository: argosnotary/argos-frontend
   ingress:
     enabled: true
     annotations: {}
@@ -16,15 +11,26 @@ frontend:
     tls:
       - secretName: frontend-tls-local-secret
         hosts:
-          - argos.local
+          - argosnotary.local
 
 service:
   secret:
     mongodb_uri:
       password: password
-      dbhost_and_port: "<db host>"
-  image:
-    repository: argosnotary/argos-service
+      dbhost_and_port: "argos-mongodb"
+  oauth2:
+    client:
+      provider:
+        azure:
+          enabled: true
+          authorizationUri: http://oauthstub.local/oauth2/v2.0/authorize-manual
+          tokenUri: http://argos-oauthstub:8080/oauth2/v2.0/token
+          userInfoUri: http://argos-oauthstub:8080/v1.0/me
+  auth:
+    frontendRedirectBasePath: https://argosnotary.local
+  jwt:
+    token:
+      secret: Z2LcVpgCuGtpb5rBDNIIWGe8RXqYGWDpWFjWhYQUS2Z8rjE2/GTJlu0s6BRYG0Mn0kV8StC9cFE83Jkl68RCkw==
 
 mongodb:
   enabled: true

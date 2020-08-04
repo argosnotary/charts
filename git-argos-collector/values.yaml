@@ -7,10 +7,7 @@ collector:
   baseurl: ""
   
 argos-collector:
-  image:
-    registry: docker.io
   ingress:
-    enabled: true
     hosts:
     - host: git-argos-collector.local
       paths: 
