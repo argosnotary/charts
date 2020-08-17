@@ -38,6 +38,10 @@ secret:
     dbhost_and_port: ''
     dbconn: "argos?authSource=admin&replicaSet=rs0"
     dbprotocol: 'mongodb'
+    
+
+mongodb:
+  database: argos
 
 image:
   registry: docker.io

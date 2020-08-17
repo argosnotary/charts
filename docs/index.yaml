@@ -3,7 +3,7 @@ entries:
   argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-08-04T17:32:48.819515309+02:00"
+    created: "2020-08-17T15:18:11.682060227+02:00"
     description: A Helm chart for an Argos Notary collector
     digest: 60f82b19182a62ede72664f1b07f5b43ffcb592dcb6405cf2d3a010ed73cd8ee
     name: argos-collector
@@ -13,8 +13,37 @@ entries:
     version: 0.0.1
   argosnotary:
   - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2020-08-17T15:18:11.689726261+02:00"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 7.14.0
+    - condition: global.oauthstub.enabled
+      name: oauthstub
+      repository: '@argosnotary'
+      version: 0.0.1
+    description: Argos Notary
+    digest: 01a3f0b63435a7571b88f0e901d395fb3ddc29c55af2d45a851ed5c06c50a3c5
+    home: https://argosnotary.github.io
+    keywords:
+    - argos
+    - notary
+    maintainers:
+    - name: Gerard Borst
+    - name: Michel Durieux
+    - name: Bart Kors
+    name: argosnotary
+    sources:
+    - https://github.com/argosnotary
+    type: application
+    urls:
+    - argosnotary-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-08-04T17:32:48.823741844+02:00"
+    created: "2020-08-17T15:18:11.68618862+02:00"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -44,7 +73,7 @@ entries:
   git-argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-08-04T17:32:48.824361177+02:00"
+    created: "2020-08-17T15:18:11.690358193+02:00"
     dependencies:
     - name: argos-collector
       repository: '@argosnotary'
@@ -59,7 +88,7 @@ entries:
   oauthstub:
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-08-04T17:32:48.824749864+02:00"
+    created: "2020-08-17T15:18:11.690766081+02:00"
     description: A Helm chart for an OAUTH stub
     digest: fecbe112e0197b8ac288bfe0f641c9d4eb0dffe0c04ae6321eea2f887a08929d
     name: oauthstub
@@ -70,7 +99,7 @@ entries:
   xldeploy-argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-08-04T17:32:48.825379409+02:00"
+    created: "2020-08-17T15:18:11.691480811+02:00"
     dependencies:
     - name: argos-collector
       repository: '@argosnotary'
@@ -82,4 +111,4 @@ entries:
     urls:
     - xldeploy-argos-collector-0.0.1.tgz
     version: 0.0.1
-generated: "2020-08-04T17:32:48.818995687+02:00"
+generated: "2020-08-17T15:18:11.68156704+02:00"
