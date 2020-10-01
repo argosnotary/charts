@@ -2,5 +2,5 @@ apiVersion: v2
 name: oauthstub
 description: A Helm chart for an OAUTH stub
 type: application
-version: 0.0.1
-appVersion: 0.0.1-RC7
+version: 2.25.1
+appVersion: 2.25.1

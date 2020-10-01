@@ -17,7 +17,7 @@ service:
   secret:
     mongodb_uri:
       password: password
-      dbhost_and_port: "argos-mongodb"
+      dbhost_and_port: "argos-mongodb-headless"
   oauth2:
     client:
       provider:
@@ -34,9 +34,13 @@ service:
 
 mongodb:
   enabled: true
-  replicaSet:
-    enabled: true
-  mongodbRootPassword: password
+  architecture: replicaset
+  replicaCount: 3
+  arbiter:
+    enabled: false
+  auth:
+    rootPassword: password
+    replicaSetKey: replicaSetKey
 
 
   
