@@ -3,7 +3,7 @@ entries:
   argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-10-01T13:45:56.673015092+02:00"
+    created: "2020-10-02T17:42:34.415352569+02:00"
     description: A Helm chart for an Argos Notary collector
     digest: 60f82b19182a62ede72664f1b07f5b43ffcb592dcb6405cf2d3a010ed73cd8ee
     name: argos-collector
@@ -14,7 +14,7 @@ entries:
   argosnotary:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2020-10-01T13:45:56.696536492+02:00"
+    created: "2020-10-02T17:42:34.431459215+02:00"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -25,7 +25,7 @@ entries:
       repository: '@argosnotary'
       version: 2.25.1
     description: Argos Notary
-    digest: ca79e90e7a75f7dc85079c7338d61d85731b94087333c2a9d70da051871f0c51
+    digest: 096f9dde24cbc2e4ccaa8e6055281d83bac638df46acf3ea8064adecc468e83b
     home: https://argosnotary.github.io
     keywords:
     - argos
@@ -43,7 +43,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2020-10-01T13:45:56.688308041+02:00"
+    created: "2020-10-02T17:42:34.425587484+02:00"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -72,7 +72,7 @@ entries:
     version: 0.1.0
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-10-01T13:45:56.681424507+02:00"
+    created: "2020-10-02T17:42:34.42119921+02:00"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -102,7 +102,7 @@ entries:
   git-argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-10-01T13:45:56.697290311+02:00"
+    created: "2020-10-02T17:42:34.432052872+02:00"
     dependencies:
     - name: argos-collector
       repository: '@argosnotary'
@@ -117,7 +117,7 @@ entries:
   oauthstub:
   - apiVersion: v2
     appVersion: 2.25.1
-    created: "2020-10-01T13:45:56.698234134+02:00"
+    created: "2020-10-02T17:42:34.432870217+02:00"
     description: A Helm chart for an OAUTH stub
     digest: f7aaa76fa15d219f603859af603c67eb51df995a0b3f33becd1898d647514168
     name: oauthstub
@@ -127,7 +127,7 @@ entries:
     version: 2.25.1
   - apiVersion: v2
     appVersion: 0.0.1-RC7
-    created: "2020-10-01T13:45:56.697762745+02:00"
+    created: "2020-10-02T17:42:34.432504111+02:00"
     description: A Helm chart for an OAUTH stub
     digest: fecbe112e0197b8ac288bfe0f641c9d4eb0dffe0c04ae6321eea2f887a08929d
     name: oauthstub
@@ -138,7 +138,7 @@ entries:
   xldeploy-argos-collector:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2020-10-01T13:45:56.698970378+02:00"
+    created: "2020-10-02T17:42:34.433444108+02:00"
     dependencies:
     - name: argos-collector
       repository: '@argosnotary'
@@ -150,4 +150,4 @@ entries:
     urls:
     - xldeploy-argos-collector-0.0.1.tgz
     version: 0.0.1
-generated: "2020-10-01T13:45:56.671606119+02:00"
+generated: "2020-10-02T17:42:34.414591005+02:00"

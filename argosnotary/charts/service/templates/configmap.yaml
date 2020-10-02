@@ -63,7 +63,7 @@ data:
                   iconUrl: /images/auth_icons/github.svg
                   displayName: Github
                   emailAddressHandler:
-                    className: com.rabobank.argos.service.security.oauth2.GithubEmailProvider
+                    className: com.argosnotary.argos.service.security.oauth2.GithubEmailProvider
                     uri: https://api.github.com/user/emails
                 {{- end }}
                 {{- if .Values.oauth2.client.provider.google.enabled }}
@@ -97,7 +97,7 @@ data:
           refreshInterval: PT15M
           sessionTimout: PT5M
       
-          # replace with the result of com.rabobank.argos.service.security.TokenProvider.main
+          # replace with the result of com.argosnotary.argos.service.security.TokenProvider.main
           secret: <placeholder>
       
         # After successfully authenticating with the OAuth2 Provider,
