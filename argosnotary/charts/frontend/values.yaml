@@ -48,7 +48,8 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: <placeholder>
-      paths: []
+      paths:
+      - /
   tls:
     - secretName: <placeholder>
       hosts:
