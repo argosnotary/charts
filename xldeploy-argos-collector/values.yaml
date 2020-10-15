@@ -2,17 +2,12 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-collector:
-  type: XLDEPLOY
-  baseurl: ""
-  
 argos-collector:
+  collector:
+    type: XLDEPLOY
+    baseurl: ""
   ingress:
     hosts:
     - host: xldeploy-argos-collector.local
-      paths: 
+      paths:
       - /
-    tls: []
-  autoscaling:
-    enabled: false
-  key_value_map_name: "xldeploy-collector-key-value-map"

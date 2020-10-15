@@ -11,8 +11,6 @@ image:
 collector:
   type: GIT
   baseurl: <placeholder>
-  
-key_value_map_name: "argos-collector-key-value-map"
 
 service:
   type: ClusterIP
@@ -25,8 +23,8 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: <placeholder>
-      path: /
-  tls: []
+      paths:
+      - /
 
 serviceAccount:
   # Specifies whether a service account should be created

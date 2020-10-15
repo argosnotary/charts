@@ -2,17 +2,12 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-collector:
-  type: GIT
-  baseurl: ""
-  
 argos-collector:
+  collector:
+    type: GIT
+    baseurl: ""
   ingress:
     hosts:
     - host: git-argos-collector.local
-      paths: 
+      paths:
       - /
-    tls: []
-  autoscaling:
-    enabled: false
-  key_value_map_name: "git-collector-key-value-map"

@@ -41,17 +41,22 @@ spec:
             httpGet:
               path: /actuator/health
               port: http
-            initialDelaySeconds: 40
-            periodSeconds: 10
+            initialDelaySeconds: 100
+            periodSeconds: 20
           readinessProbe:
             httpGet:
               path: /actuator/health
               port: http
-            initialDelaySeconds: 40
-            periodSeconds: 10
+            initialDelaySeconds: 100
+            periodSeconds: 20
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
+          - name: JAVA_OPTS
+            valueFrom:
+              configMapKeyRef:
+                name: {{ include "service.fullname" . }}-configmap
+                key: java-opts
           - name: server.use-forward-headers
             value: 'true'
           - name: spring.config.location

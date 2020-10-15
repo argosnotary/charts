@@ -31,4 +31,6 @@ data:
     \       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n
     \       proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;\n
     \       proxy_set_header Host $host;\n
-    \  }\n}\n"
+    \    }\n
+    \    client_max_body_size 10M;\n
+    \ }\n"

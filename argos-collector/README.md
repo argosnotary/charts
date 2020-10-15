@@ -27,7 +27,7 @@ The following table lists the configurable parameters of the MongoDB chart and t
 ```bash
 $ helm install my-release \
   --set collector.baseurl=http://xldeploy:4516 \
-    argosnotary/xldeploy-argos-collctor
+    argosnotary/xldeploy-argos-collector
 ```
 
 The above command sets the url of the XL Deploy server on which the Deployment Packages should be collected.
