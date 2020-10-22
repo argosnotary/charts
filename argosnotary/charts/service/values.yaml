@@ -39,7 +39,7 @@ secret:
     dbconn: "argos?authSource=admin&replicaSet=rs0"
     dbprotocol: 'mongodb'
     
-java_opts: '-Xmx1g'
+java_opts: "-XX:MaxRAMPercentage=75"
 
 mongodb:
   database: argos

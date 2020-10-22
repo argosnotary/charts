@@ -1,8 +1,8 @@
 apiVersion: v2
 name: argosnotary
-version: 1.0.0
+version: 1.0.3
 description: Argos Notary
-home: https://argosnotary.github.io
+home: https://www.argosnotary.com
 keywords:
   - argos
   - notary
@@ -22,4 +22,4 @@ maintainers:
   - name: Gerard Borst
   - name: Michel Durieux
   - name: Bart Kors
-appVersion: 1.0.0
+appVersion: 1.0.3

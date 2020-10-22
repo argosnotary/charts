@@ -31,7 +31,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ include "argos-collector.image" . }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
           - configMapRef:
@@ -44,13 +44,13 @@ spec:
             httpGet:
               path: /actuator/health
               port: http
-            initialDelaySeconds: 200
+            initialDelaySeconds: 120
             periodSeconds: 20
           readinessProbe:
             httpGet:
               path: /actuator/health
               port: http
-            initialDelaySeconds: 200
+            initialDelaySeconds: 120
             periodSeconds: 20
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

@@ -1,8 +1,8 @@
 apiVersion: v1
 data:
   spring.profiles.active: {{ .Values.collector.type | quote }}
-  argos-collector.collectortypes.git.baseurl: {{ .Values.collector.baseurl | quote }}
-  argos-collector.collectortypes.xldeploy.baseurl: {{ .Values.collector.baseurl | quote }}
+  argos-collector.baseurl: {{ .Values.collector.baseurl | quote }}
+  JAVA_OPTS: {{ .Values.collector.java_opts | quote }}
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-argos-collector-key-value-map

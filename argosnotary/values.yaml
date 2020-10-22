@@ -8,6 +8,8 @@ frontend:
     annotations: {}
     hosts:
       - host: argosnotary.local
+        paths:
+          - /
     tls:
       - secretName: frontend-tls-local-secret
         hosts:
